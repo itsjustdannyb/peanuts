@@ -10,8 +10,13 @@ from fastapi.templating import Jinja2Templates
 
 templates = Jinja2Templates(directory="templates")
 
+# css
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
+
+# mount css to api
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # home

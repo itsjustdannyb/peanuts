@@ -1,0 +1,103 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: 0px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 5px;
+    background-color: #FFD966;
+    color: #011222;
+}
+ 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #011222;
+    width: 500px;
+    height: 500px;
+    padding: 25px;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+label h2 {
+    text-align: center;
+
+}
+
+#course{
+    width: 250px;
+    height: 45px;
+    padding: 5px;
+    font-size: 18px;
+
+    outline: none;
+    border: 1px solid #011222;
+    background-color:#FFD966;
+    border-radius: 30px;
+    text-align: center;
+
+}
+
+#course:focus{
+    outline: #011222 solid 1px;
+
+}
+
+
+#btn{
+    margin-top: 15px;
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    
+    background-color: #011222;
+    color:#FFD966;
+}
+
+
+#btn:hover{
+    cursor: pointer;
+    background-color: #FFD966;
+    color: #011222;
+    border: 1px solid #011222;
+}
+
+#btn {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.response {
+    padding-bottom: 30px;
+}
+
+
+/* Tablets */
+@media(max-width: 600px) and (min-width: 0px){
+
+	.container {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #011222;
+        width: 300px;
+        height: 400px;
+        padding: 25px;
+    }
+
+}

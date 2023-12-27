@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>peanuts</title>
+
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{url_for('static', path='/styles.css')}}">
 </head>
 <body>
-    <h1>peanuts!</h1>
 
-    {{prayer}}
+    <div class="container">
+        <h1>peanuts!</h1>
 
-    <form action="/shell" method="post">
-        <label for="course">What's the course?</label>
-        <br>
-        <input type="text" name="course" id="course">
-        <br>
-        <input type="submit" value="peanuts!">
-    </form>
+        <span class="response">{{prayer}}</span>
 
+        <form action="/shell" method="post">
+            <label for="course"><h2>what's the course?</h2></label>
+            <br>
+            <input type="text" name="course" id="course">
+            <br>
+            <input type="submit" value="peanuts!" id="btn">
+        </form>
+    </div>
 
 </body>
 </html>
