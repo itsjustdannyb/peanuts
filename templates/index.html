@@ -13,19 +13,21 @@
     <div class="container">
         <h1>peanuts!</h1>
 
-        <span class="response"> {{prayer}} </span>
+        <span class="response"> <h3>"{{prayer}} {{error_message}}"</h3> </span>
 
-        <form action="/shell" methosdfdfsfd="post">
+        <form action="/shell" method="post">
             <label for="course"><h2>what's the course?</h2></label>
             <br>
             <input type="text" name="course" id="course">
             <br>
-            <input type="submit" value="GO!!" id="btn">
+            <input type="submit" value="GO!" id="btn">
         </form>
-        
-        {{predict}}
 
     </div>
+
+    <footer>
+        <p>BAMS</p>
+    </footer>
 
 </body>
 </html>

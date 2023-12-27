@@ -30,7 +30,7 @@ body{
     align-items: center;
     justify-content: center;
     border: 1px solid #011222;
-    width: 500px;
+    width: 450px;
     height: 500px;
     padding: 25px;
 }
@@ -99,6 +99,19 @@ label h2 {
 .response {
     padding-bottom: 30px;
     font-family: Oswald;
+    font-weight: 400;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    font-weight: 500;
+    margin-top: 5px;
 }
 
 

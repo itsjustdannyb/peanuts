@@ -41,7 +41,13 @@ async def shell(request: Request):
 
 
 @app.post('/shell', response_class=HTMLResponse)
-async def shell(request:Request, course=Form(...)):
+async def shell(request:Request, course: str=Form(...)):
+
+    if not course:
+        error_message = "Please input a valid  course"
+        return templates.TemplateResponse("index.html", {'request':request, 'error_message':error_message})
+
+
     course = course.lower()
     if course == 'physics':
         prayer = random.choice(prayers[course])
