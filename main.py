@@ -1,9 +1,10 @@
 # peanuts
 import random
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 
 # HTML
+from fastapi import Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
@@ -35,12 +36,12 @@ async def shell(request: Request):
 
 
 @app.post('/shell', response_class=HTMLResponse)
-async def shell(request:Request, entry: str = Form(...)):
-    entry = entry.lower()
-    if entry == 'physics':
-        prayer = random.choice(prayers[entry])
-    elif entry == 'math':
-        prayer = random.choice(prayers[entry])
+async def shell(request:Request, course=Form(...)):
+    course = course.lower()
+    if course == 'physics':
+        prayer = random.choice(prayers[course])
+    elif course == 'math':
+        prayer = random.choice(prayers[course])
     else:
         prayer = random.choice(prayers['biology'])
 
