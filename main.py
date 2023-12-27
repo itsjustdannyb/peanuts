@@ -35,8 +35,7 @@ async def shell(request: Request):
 
 
 @app.post('/shell', response_class=HTMLResponse)
-async def shell(request:Request, entry: str = Form(.        cd cdcls
-
+async def shell(request:Request, entry: str = Form(...)):
     entry = entry.lower()
     if entry == 'physics':
         prayer = random.choice(prayers[entry])
