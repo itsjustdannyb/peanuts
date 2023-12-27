@@ -68,6 +68,7 @@ label h2 {
 
 #course:focus{
     outline: #011222 solid 1px;
+    border-radius: 30px;
 
 }
 
@@ -97,6 +98,7 @@ label h2 {
 
 .response {
     padding-bottom: 30px;
+    font-family: Oswald;
 }
 
 
