@@ -17,7 +17,7 @@ from fastapi.staticfiles import StaticFiles
 
 # OpenAi
 import openai
-api_key = "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"
+openai.api_key = "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"
 
 
 app = FastAPI()

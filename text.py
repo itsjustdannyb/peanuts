@@ -7,4 +7,6 @@ text = input("What's the course? ")
 
 process = openai.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role":"user", "content": f"generate a 25 token peanut sized prayer point about {text}, it must ne no more than 25 tokens! make it simple, short heartfelt and direct. Emphhasis on simplicity"}])
 
-print(process.choices[0].message.content)
+output = process.choices[0].message.content
+
+print(output)
