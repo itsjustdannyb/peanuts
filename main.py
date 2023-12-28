@@ -16,7 +16,7 @@ templates = Jinja2Templates(directory="templates")
 from fastapi.staticfiles import StaticFiles
 
 # OpenAi
-import openapi
+import openai
 api_key = "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"
 
 
@@ -32,11 +32,11 @@ async def home():
     return " Welcome to peanuts API, Jesus loves you. try '/shell'"
 
 # dict of course and prayers #
-prayers = {
-    'physics':["May the Lord who made the cosmos grant you divine understanding", "Atoms are small, but guess who isn't? God! He will guide you as you write your exams"],
-    'math':["Jesus made math not make sense, receive divine wisdom in Jesus' name", "The patience to make accurate calculations, receive now in Jesus name"],
-    'biology':["May the creator of life give life to all you have read in Jesus name", "May the creator of life give you divine understanding as you study in Jesus name"]
-}
+# prayers = {
+#     'physics':["May the Lord who made the cosmos grant you divine understanding", "Atoms are small, but guess who isn't? God! He will guide you as you write your exams"],
+#     'math':["Jesus made math not make sense, receive divine wisdom in Jesus' name", "The patience to make accurate calculations, receive now in Jesus name"],
+#     'biology':["May the creator of life give life to all you have read in Jesus name", "May the creator of life give you divine understanding as you study in Jesus name"]
+# }
 
 
 # peanuts api
