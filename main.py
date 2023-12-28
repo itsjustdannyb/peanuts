@@ -2,6 +2,8 @@
 import random
 import uvicorn
 from fastapi import FastAPI
+from typing import Optional
+
 
 # HTML
 from fastapi import Request, Form
@@ -41,9 +43,9 @@ async def shell(request: Request):
 
 
 @app.post('/shell', response_class=HTMLResponse)
-async def shell(request:Request, course: str=Form(...)):
+async def shell(request:Request, course: str|None =Form(None)):
 
-    if not course:
+    if course is None or not course.strip():
         error_message = "Please input a valid  course"
         return templates.TemplateResponse("index.html", {'request':request, 'error_message':error_message})
 
