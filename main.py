@@ -43,7 +43,7 @@ async def shell(request:Request, course: str=Form(None)):
         return templates.TemplateResponse("index.html", {'request':request, 'error_message':error_message})
 
     api_url = "peanuts-api-production.up.railway.app"
-    data = {'prompt':prompt}
+    data = {'prompt':course}
 
     response = requests.post(api_url, data=data)
 
