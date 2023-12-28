@@ -15,6 +15,11 @@ templates = Jinja2Templates(directory="templates")
 # css
 from fastapi.staticfiles import StaticFiles
 
+# OpenAi
+import openapi
+api_key = "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"
+
+
 app = FastAPI()
 
 # mount css to api
@@ -49,14 +54,18 @@ async def shell(request:Request, course: str=Form(None)):
         error_message = "Please input a valid  course"
         return templates.TemplateResponse("index.html", {'request':request, 'error_message':error_message})
 
+    process = openai.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role":"user", "content": f"generate a 25 token peanut sized prayer point about {course}, it must ne no more than 25 tokens! make it simple, short heartfelt and direct. Emphhasis on simplicity"}])
 
-    course = course.lower()
-    if course == 'physics':
-        prayer = random.choice(prayers[course])
-    elif course == 'math':
-        prayer = random.choice(prayers[course])
-    else:
-        prayer = random.choice(prayers['biology'])
+    prayer = process.choices[0].message.content
+
+
+    # course = course.lower()
+    # if course == 'physics':
+    #     prayer = random.choice(prayers[course])
+    # elif course == 'math':
+    #     prayer = random.choice(prayers[course])
+    # else:
+    #     prayer = random.choice(prayers['biology'])
 
     return templates.TemplateResponse("index.html", {'request':request, 'prayer':prayer})
 
