@@ -42,7 +42,7 @@ async def shell(request:Request, course: str=Form(None)):
         error_message = "Please input a valid  course"
         return templates.TemplateResponse("index.html", {'request':request, 'error_message':error_message})
 
-    api_url = "peanuts-api-production.up.railway.app"
+    api_url = "https://peanuts-api-production.up.railway.app"
     data = {'prompt':course}
 
     response = requests.post(api_url, data=data)
