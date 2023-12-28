@@ -43,7 +43,7 @@ async def shell(request: Request):
 
 
 @app.post('/shell', response_class=HTMLResponse)
-async def shell(request:Request, course: str|None =Form(None)):
+async def shell(request:Request, course: str=Form(None)):
 
     if course is None or not course.strip():
         error_message = "Please input a valid  course"
