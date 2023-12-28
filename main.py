@@ -1,8 +1,8 @@
 # peanuts
-import random
 import uvicorn
 from fastapi import FastAPI
 from typing import Optional
+import requests
 
 
 # HTML
@@ -15,10 +15,6 @@ templates = Jinja2Templates(directory="templates")
 # css
 from fastapi.staticfiles import StaticFiles
 
-# OpenAi
-import openai
-openai.api_key = "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"
-
 
 app = FastAPI()
 
@@ -30,14 +26,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get('/')
 async def home():
     return " Welcome to peanuts API, Jesus loves you. try '/shell'"
-
-# dict of course and prayers #
-# prayers = {
-#     'physics':["May the Lord who made the cosmos grant you divine understanding", "Atoms are small, but guess who isn't? God! He will guide you as you write your exams"],
-#     'math':["Jesus made math not make sense, receive divine wisdom in Jesus' name", "The patience to make accurate calculations, receive now in Jesus name"],
-#     'biology':["May the creator of life give life to all you have read in Jesus name", "May the creator of life give you divine understanding as you study in Jesus name"]
-# }
-
 
 # peanuts api
 
@@ -54,21 +42,18 @@ async def shell(request:Request, course: str=Form(None)):
         error_message = "Please input a valid  course"
         return templates.TemplateResponse("index.html", {'request':request, 'error_message':error_message})
 
-    process = openai.chat.completions.create(model="gpt-3.5-turbo", messages=[{"role":"user", "content": f"generate a 25 token peanut sized prayer point about {course}, it must ne no more than 25 tokens! make it simple, short heartfelt and direct. Emphhasis on simplicity"}])
+    api_url = "peanuts-api-production.up.railway.app"
+    data = {'prompt':prompt}
 
-    prayer = process.choices[0].message.content
+    response = requests.post(api_url, data=data)
 
+    if response.status_code == 200:
+        prayer = response.json()["prayer"]
+        return templates.TemplateResponse("index.html", {'request': request, 'prayer': prayer})
 
-    # course = course.lower()
-    # if course == 'physics':
-    #     prayer = random.choice(prayers[course])
-    # elif course == 'math':
-    #     prayer = random.choice(prayers[course])
-    # else:
-    #     prayer = random.choice(prayers['biology'])
-
-    return templates.TemplateResponse("index.html", {'request':request, 'prayer':prayer})
-
+    else:
+        error_message = f"Error: {response.status_code} - {response.text}"
+        return templates.TemplateResponse("index.html", {'request': request, 'error_message': error_message})
 
 
 # run
