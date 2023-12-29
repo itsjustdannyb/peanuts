@@ -40,6 +40,7 @@ h1 {
     font-weight: 700;
     text-align: center;
     padding-bottom: 60px;
+    font-size: 45px;
 }
 
 
@@ -100,6 +101,7 @@ label h2 {
     padding-bottom: 30px;
     font-family: Oswald;
     font-weight: 400;
+    text-align: center;
 }
 
 footer{
@@ -114,6 +116,12 @@ p {
     margin-top: 5px;
 }
 
+.parting {
+    margin-top: 15px;
+    font-family: Oleo Script;
+    font-weight: 400;
+    font-size: 14px;
+}
 
 /* Tablets */
 @media(max-width: 600px) and (min-width: 0px){
