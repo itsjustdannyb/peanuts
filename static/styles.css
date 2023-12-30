@@ -31,7 +31,7 @@ body{
     justify-content: center;
     border: 1px solid #011222;
     width: 450px;
-    height: 500px;
+    height: 85%;
     padding: 25px;
 }
 
@@ -135,7 +135,7 @@ p {
         justify-content: center;
         border: 1px solid #011222;
         width:300px;
-        height: 450px;
+        height: 75%;
         padding: 25px;
     }
 
