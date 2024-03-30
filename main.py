@@ -42,7 +42,7 @@ async def shell(request:Request, course: str=Form(None)):
         error_message = "Please input a valid  course"
         return templates.TemplateResponse("index.html", {'request':request, 'error_message':error_message})
 
-    api_url = "https://peanuts-api-production.up.railway.app/peanuter2000"
+    api_url = "https://peanuts-api-production.azurewebsites.net/peanuter2000"
     payload = {'prompt':course}
 
     response = requests.post(api_url, params=payload)
