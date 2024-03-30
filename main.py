@@ -52,7 +52,8 @@ async def shell(request:Request, course: str=Form(None)):
         return templates.TemplateResponse("index.html", {'request': request, 'prayer': prayer})
 
     else:
-        error_message = f"Error: {response.status_code} - {response.text}"
+        # error_message = f"Error: {response.status_code} - {response.text}"
+        error_message = "OpenAI free trial exhausted ☹️☹️☹️"
         return templates.TemplateResponse("index.html", {'request': request, 'error_message': error_message})
 
 
